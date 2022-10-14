@@ -34,3 +34,4 @@ rules:
       - "download.microsoft.com"
       - "*.download.microsoft.com"
       - "go.microsoft.com"
+      
