@@ -30,7 +30,7 @@ jobs:
               echo ">>> Evaluating $file <<<"
               result=$(./opa eval -i $file -d ./rego -f pretty data.firewall.violation)
               echo $result | jq .[] --raw-output
-              if [ "$result" == "[]" ]; then
+              if [ "$result" != "[]" ]; then
                   exit=1
               fi
               echo
