@@ -1,0 +1,39 @@
+name: Policy
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  policy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.5.0
+        
+      - name: Changed Files
+        uses: tj-actions/changed-files@v32.1.0
+        with:
+          path: ./rules
+          
+      - name: Install OPA CLI
+        run: |
+          curl -L -o opa https://openpolicyagent.org/downloads/v0.45.0/opa_linux_amd64_static
+          chmod 755 ./opa 
+      
+      - name: Run policy checks
+        run: |
+          exit=0
+          for file in ${{ steps.changed-files.outputs.all_changed_files }}
+          do
+              echo ">>> Evaluating $file <<<"
+              result=$(./opa eval -i $file -d ./rego -f pretty data.firewall.violation)
+              echo $result | jq .[] --raw-output
+              if [ "$result" == "[]" ]; then
+                  exit=1
+              fi
+              echo
+          done
+          exit $exit
+
+  
