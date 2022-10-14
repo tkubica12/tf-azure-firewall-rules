@@ -1,0 +1,6 @@
+**/.terraform/*
+
+*.tfstate
+*.tfstate.*
+environments/prod/terraform/.terraform.lock.hcl
+terraform/.terraform.lock.hcl

@@ -1,0 +1,16 @@
+name: API services
+priority: 1000
+rules:
+  accuweather:
+    protocols:
+      Https:
+        port: 443
+    destination_fqdns:
+      - "developer.accuweather.com"
+  microsoft:
+    protocols:
+      Https:
+        port: 443
+    destination_fqdns:
+      - "api.cognitive.microsofttranslator.com"
+      - "*.cognitiveservices.azure.com"
