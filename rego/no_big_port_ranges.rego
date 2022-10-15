@@ -1,0 +1,11 @@
+package firewall
+
+import future.keywords.contains
+import future.keywords.if
+
+violation contains msg if {
+    ports := split(input.group_rules[rule].destination_ports[range], "-")
+	(to_number(ports[1]) - to_number(ports[0]) > 5000)
+	msg := sprintf("Port ranges must not be too big, found '%v' in '%v' rule of '%v'.", [range, rule, input.name])
+}
+
