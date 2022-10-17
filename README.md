@@ -3,4 +3,4 @@ This repo demonstrates one of manz options to abstract firewall rules to make it
 
 This repo includes GitHub Actions workflow including policy checks using rego language and Open Policy Agent.
 
-Detailed step-by-step instructions TBD.
+Detailed step-by-step instructions, automated deployment via action and approvals workflow TBD.
