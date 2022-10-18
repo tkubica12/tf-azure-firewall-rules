@@ -7,7 +7,7 @@ permissions:
   contents: read
 
 jobs:
-  plan:
+  destroy:
     environment: prod
     runs-on: ubuntu-latest
     steps:
@@ -24,4 +24,4 @@ jobs:
           ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
           ARM_USE_OIDC: true
         working-directory: terraform
-        run: terraform destroy -aut-approve
+        run: terraform destroy -auto-approve
