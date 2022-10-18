@@ -7,6 +7,7 @@ terraform {
   }
   backend "azurerm" {
     use_oidc = true
+    use_azuread_auth = true
     storage_account_name = "tkubicastore"
     container_name = "tfstate"
     key = "tf-azure-firewall-rules.tfstate"
