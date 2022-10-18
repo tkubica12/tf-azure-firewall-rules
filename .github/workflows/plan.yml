@@ -1,0 +1,29 @@
+name: Plan changes
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  policy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.5.0
+        
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2
+
+      - name: Terraform Init
+        env:
+          ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
+          ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+          ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
+          ARM_USE_OIDC: true
+          TF_STORAGE: tkubicastore
+          TF_CONTAINER: tfstate
+          TF_KEY: tf-azure-firewall-rules
+        run: |
+          terraform init \
+            -backend-config storage_account_name=$TF_STORAGE container_name=$TF_CONTAINER key=$TF_KEY
+
+  
