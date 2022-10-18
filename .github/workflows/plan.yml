@@ -8,7 +8,7 @@ permissions:
   contents: read
 
 jobs:
-  policy:
+  plan:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -45,7 +45,7 @@ jobs:
         working-directory: terraform
         run: |
           terraform plan \
-            -out=../tfplan
+            -out=../tfplan \
             -backend-config storage_account_name=$TF_STORAGE \
             -backend-config container_name=$TF_CONTAINER \
             -backend-config key=$TF_KEY
