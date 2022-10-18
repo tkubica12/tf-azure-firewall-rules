@@ -26,4 +26,11 @@ Few examples of policy checks are included for example to warn of wildcard use, 
 - Ad-hoc test with manual dispatch that will run tests over all YAML files in rules folder
 
 # Worflow and automation
-Docs and CD workflow TBD
+- Branch protection is configured so no direct commits to main are allowed, only via Pull Request
+- Policy checks and run on each PR
+- Terraform plan file is generated, storage and planned changes logged on each PR
+- After merge deployment to production is initiated requiring additional approval and stored plan file is consumed so no not-reviewed changes will be done (Terraform will fail if it detects any drift)
+ - improvement needed here as currently I take last plan file from last run of workflow, this should be locked rather to specific commit this merge is about
+
+# Roadmap and missing items
+See [https://github.com/users/tkubica12/projects/2/views/1](https://github.com/users/tkubica12/projects/2/views/1)
