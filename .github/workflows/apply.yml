@@ -9,6 +9,7 @@ permissions:
 
 jobs:
   apply:
+    environment: prod
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
