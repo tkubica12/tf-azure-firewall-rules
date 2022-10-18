@@ -6,6 +6,7 @@ terraform {
     }
   }
   backend "azurerm" {
+    use_oicd = true
     storage_account_name = "tkubicastore"
     container_name = "tfstate"
     key = "tf-azure-firewall-rules.tfstate"
