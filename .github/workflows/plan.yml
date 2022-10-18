@@ -22,6 +22,7 @@ jobs:
           TF_STORAGE: tkubicastore
           TF_CONTAINER: tfstate
           TF_KEY: tf-azure-firewall-rules
+        working-directory: terraform
         run: |
           terraform init \
             -backend-config storage_account_name=$TF_STORAGE \
@@ -37,9 +38,10 @@ jobs:
           TF_STORAGE: tkubicastore
           TF_CONTAINER: tfstate
           TF_KEY: tf-azure-firewall-rules
+        working-directory: terraform
         run: |
           terraform plan \
-            -out=../../tfplan
+            -out=../tfplan
             -backend-config storage_account_name=$TF_STORAGE \
             -backend-config container_name=$TF_CONTAINER \
             -backend-config key=$TF_KEY
