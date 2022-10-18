@@ -14,3 +14,4 @@ rules:
     destination_fqdns:
       - "api.cognitive.microsofttranslator.com"
       - "*.cognitiveservices.azure.com"
+      - "westeurope.api.cognitive.microsoft.com"
