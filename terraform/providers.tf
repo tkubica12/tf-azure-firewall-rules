@@ -5,6 +5,11 @@ terraform {
       version = "~>3"
     }
   }
+  backend "azurerm" {
+    storage_account_name = "tkubicastore"
+    container_name = "tfstate"
+    key = "tf-azure-firewall-rules.tfstate"
+  }
 }
 
 provider "azurerm" {

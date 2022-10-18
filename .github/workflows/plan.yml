@@ -23,15 +23,8 @@ jobs:
           ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
           ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
           ARM_USE_OIDC: true
-          TF_STORAGE: tkubicastore
-          TF_CONTAINER: tfstate
-          TF_KEY: tf-azure-firewall-rules
         working-directory: terraform
-        run: |
-          terraform init \
-            -backend-config storage_account_name=$TF_STORAGE \
-            -backend-config container_name=$TF_CONTAINER \
-            -backend-config key=$TF_KEY
+        run: terraform init
 
       - name: Terraform plan
         env:
@@ -39,12 +32,8 @@ jobs:
           ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
           ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
           ARM_USE_OIDC: true
-          TF_STORAGE: tkubicastore
-          TF_CONTAINER: tfstate
-          TF_KEY: tf-azure-firewall-rules
         working-directory: terraform
-        run: |
-          terraform plan -out=../tfplan
+        run: terraform plan -out=../tfplan
 
       - name: Store plan as artefact
         uses: actions/upload-artifact@v2
