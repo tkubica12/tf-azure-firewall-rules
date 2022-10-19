@@ -32,7 +32,7 @@ jobs:
         with:
           workflow: plan.yml
           workflow_conclusion: success
-          name: 12
+          name: ${{ github.event.pull_request.number }}
           path: terraform/
           check_artifacts:  false
           search_artifacts: true

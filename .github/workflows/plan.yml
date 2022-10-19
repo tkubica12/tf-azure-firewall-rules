@@ -38,5 +38,5 @@ jobs:
       - name: Store plan as artefact
         uses: actions/upload-artifact@v2
         with:
-          name: ${{ github.event.number }}
+          name: ${{ github.event.pull_request.number }}
           path: tfplan  
