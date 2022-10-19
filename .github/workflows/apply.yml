@@ -32,10 +32,10 @@ jobs:
         with:
           workflow: plan.yml
           workflow_conclusion: success
-          name: tfplan
+          name: 12
           path: terraform/
           check_artifacts:  false
-          search_artifacts: false
+          search_artifacts: true
 
       - name: Terraform apply
         env:
