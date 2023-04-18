@@ -18,7 +18,7 @@ Key principles:
   - Created using files with "app" prefix
   - Used to configure outbound traffic to L7 targets (mostly on Internet)
   - Source cannot be configured and solution statically use proper IP group of project/subscription (owner of subscription can configure only rules for himself)
-- Applicaiton publication is not solved in this demo - exposure will be done on different product (Front Door or Application Gateway) for http-based workloads and non-http-based usecases are not in scope of this simple example.
+- Application publication is not solved in this demo - exposure will be done on different product (Front Door or Application Gateway) for http-based workloads and non-http-based usecases are not in scope of this simple example.
 
 # Policy checks
 Few examples of policy checks are included for example to warn of wildcard use, too wide port ranges, use of unencrypted http communication or exposure of unsecure ports. Examples are written in rego language and GitHub Actions workflow is provided to use Open Policy Agent to run policy checks in two ways:
