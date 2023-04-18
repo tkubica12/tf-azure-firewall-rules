@@ -33,4 +33,3 @@ Few examples of policy checks are included for example to warn of wildcard use, 
 
 # Roadmap and missing items
 See [https://github.com/users/tkubica12/projects/2/views/1](https://github.com/users/tkubica12/projects/2/views/1)
-
