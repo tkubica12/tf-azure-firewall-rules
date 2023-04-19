@@ -15,3 +15,4 @@ rules:
       - "api.cognitive.microsofttranslator.com"
       - "*.cognitiveservices.azure.com"
       - "westeurope.api.cognitive.microsoft.com"
+      - "test.microsoft.com"
